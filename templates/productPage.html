@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block title %}
+  Product
+{% endblock %}
+{% block menu %}
+  <div style="padding: 10px 0;"></div>
+  {% for prod in product %}
+    <section>
+      <div class="ProductContainer">
+        <div class="firstProductContainer">
+          <div class="firstImageSection">
+            <!-- Image -->
+            <div class="border_product_img_view active"><img src={{prod.prod_img_1.url}} class="product_img_view" alt=""></div>
+            <div class="border_product_img_view"><img src={{prod.prod_img_2.url}} class="product_img_view" alt=""></div>
+            <div class="border_product_img_view"><img src={{prod.prod_img_3.url}} class="product_img_view" alt=""></div>
+          </div>
+          <div class="secondImageSection">
+            <div class="mainImage">
+              <img src={{prod.prod_img_2.url}} class="product_img_view" alt="">
+            </div>
+            <div class="shoppingButtons">
+              <a href="#"></a>
+            </div>
+          </div>
+        </div>
+        <div class="secondProductContainer"></div>
+      </div>
+    </section>
+  {% endfor %}
+{% endblock %}

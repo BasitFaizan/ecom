@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block title %}
+  Categories
+{% endblock %}
+{% block menu %}
+<div style="padding: 50px 0;"></div>
+<section style="padding: 20px 0;">
+{% for prod in allProd %}
+  <div class="container" data-aos="fade-up">
+
+    <div class="d-flex flex-column">
+      <div class="alert alert-primary" role="alert">
+        {{prod.0.category}}
+      </div>
+      <div class="prod_dir mb-3">
+      {% for prod in prod %}
+          <div style="width: 20em;" class="col-lg-4 menu-item prod_card">
+            <div class="prod_img">
+            <a href="/media/{{prod.prod_img_1}}" class="glightbox"><img src="/media/{{prod.prod_img_1}}" class="menu-img img-fluid" style="width: 20em;" alt=""></a></div>
+            <h4 style="color: #cf2312; margin-top: 10px;">{{prod.prod_name}}</h4>
+            <p class="ingredients">{{prod.prod_desc|slice:50}}...</p>
+            <p class="price">
+              {{prod.price}}
+            </p>
+
+            <a style="background-color: #cf2312; outline: none; border: none;" class="btn btn-primary" href="/product={{prod.id}}" role="button">Explore</a>
+          </div><!-- Menu Item -->
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </section> 
+{% endfor %}
+
+{% endblock %}
